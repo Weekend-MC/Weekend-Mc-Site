@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Purchase - WEEKND MC Store</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link the same stylesheet -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Simple Header for Purchase Page -->
+    <header class="purchase-header">
+        <div class="container">
+            <div class="logo">WEEKND MC Store</div>
+        </div>
+    </header>
+
+    <main class="purchase-container container">
+        <h1>Confirm Your Purchase</h1>
+
+        <div class="purchase-details">
+            <p>You are purchasing: <strong id="item-name">Item Name Loading...</strong></p>
+            <p>For Minecraft Username: <strong id="purchase-username">Username Loading...</strong></p>
+            <hr>
+        </div>
+
+        <!-- Coupon Section -->
+        <section id="coupon-section" class="purchase-section">
+            <h2><i class="fas fa-tags"></i> Apply Coupon</h2>
+            <div class="coupon-input-group">
+                <input type="text" id="couponCode" placeholder="Enter Coupon Code">
+                <button class="btn btn-secondary btn-apply-coupon">Apply</button>
+            </div>
+            <small id="coupon-message"></small>
+        </section>
+
+        <!-- Agreements Section -->
+        <section id="agreements-section" class="purchase-section">
+            <h2><i class="fas fa-file-contract"></i> Agreements</h2>
+            <div class="agreement">
+                <input type="checkbox" id="agreement1" name="agreement1" class="agreement-checkbox">
+                <label for="agreement1">I agree with the terms and conditions of this purchase.</label>
+            </div>
+            <div class="agreement">
+                <input type="checkbox" id="agreement2" name="agreement2" class="agreement-checkbox">
+                <label for="agreement2">I confirm that I am either over 16 or have guardian permission, and I consent to the collection and use of my data for this purchase.</label>
+            </div>
+            <div class="agreement">
+                <input type="checkbox" id="agreement3" name="agreement3" class="agreement-checkbox">
+                <label for="agreement3">I verify that the Minecraft account with the name "<span id="verify-username" class="dynamic-username">Username</span>", which I am using to make this purchase, belongs to me.</label>
+            </div>
+        </section>
+
+        <!-- Finalize Purchase Section -->
+        <section id="finalize-section" class="purchase-section">
+            <h2><i class="fas fa-shopping-cart"></i> Finalize Purchase</h2>
+            <p>Please check all agreements above to proceed.</p>
+            <button id="finalize-button" class="btn btn-purchase" disabled>
+                <i class="fas fa-lock"></i> Finalize Purchase (Agree Above)
+            </button>
+            <!-- This button would typically redirect to your payment gateway -->
+        </section>
+    </main>
+
+     <footer class="purchase-footer">
+        <div class="container">
+             <p>© 2025 WEEKND MC. All Rights Reserved. | Not affiliated with Mojang AB.</p>
+        </div>
+    </footer>
+
+    <script src="purchase.js"></script> <!-- New JS file for this page -->
+</body>
+</html>

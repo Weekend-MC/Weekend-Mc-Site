@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEEKND MC - Server Store</title> <!-- Server Name -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="background-video">
+        <!-- === IMPORTANT: Replace these with the actual paths to YOUR video files === -->
+        <source src="bg video.mp4" type="video/mp4">
+        <source src="path/to/your/winter-video.webm" type="video/webm">
+        <!-- Fallback text if video isn't supported -->
+        Your browser does not support the video tag.
+    </video>
+    <!-- End Background Video -->
+
+    <header>
+        <div class="container">
+            <div class="logo">WEEKND MC Store</div> <!-- Server Name -->
+            <!-- Optional Navigation can be added here if needed -->
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to the WEEKND MC Server Store</h1> <!-- Server Name -->
+            <p>Enhance your gameplay with exclusive ranks, kits, and server coins!</p>
+            <div class="main-buttons">
+                <a href="#ranks" class="btn btn-primary"> <i class="fas fa-crown"></i> View Ranks & Kits</a>
+                <a href="#coins" class="btn btn-secondary"> <i class="fas fa-coins"></i> Buy Coins</a>
+                 <a href="#vote" class="btn btn-secondary"> <i class="fas fa-check-to-slot"></i> Vote Links</a>
+            </div>
+        </div>
+        <!-- <div class="hero-overlay"></div> Removed overlay -->
+    </section>
+
+    <main class="container">
+        <!-- Ranks & Kits Section -->
+        <section id="ranks" class="store-section">
+            <h2><i class="fas fa-medal"></i> Ranks & Kits</h2>
+            <p>Unlock powerful perks, commands, and unique kits by upgrading your rank.</p>
+
+            <!-- Minecraft Username Input -->
+            <div class="username-input-container">
+                <label for="minecraftUsername">Enter Your Minecraft Username:</label>
+                <input type="text" id="minecraftUsername" name="minecraftUsername" placeholder="YourInGameName" required>
+                <small id="username-error" class="error-message" style="display: none; color: #ffc107; font-weight: bold;">Please enter your Minecraft username first!</small>
+                <small>Purchases will be applied to this username. Case-sensitive!</small>
+            </div>
+            <!-- End Minecraft Username Input -->
+
+            <!-- Ranks -->
+            <div class="item-grid">
+                <!-- Rank 1 -->
+                <div class="item-card rank-card">
+                    <img src="https://placehold.co/300x150/2C3E50/FFFFFF/png?text=Stone+Rank" alt="Stone Rank Icon">
+                    <h3>Stone Rank</h3>
+                    <p class="price">$5.00</p>
+                    <ul>
+                        <li>Basic Kit (/kit stone)</li>
+                        <li>[+] Prefix in chat</li>
+                        <li>Access to /sethome (1)</li>
+                        <li>Other Perk...</li>
+                    </ul>
+                    <!-- MODIFIED: Removed href="#" -->
+                    <button class="btn btn-purchase" data-item="Stone Rank">Purchase</button>
+                </div>
+                <!-- Rank 2 -->
+                <div class="item-card rank-card">
+                    <img src="https://placehold.co/300x150/2C3E50/FFFFFF/png?text=Iron+Rank" alt="Iron Rank Icon">
+                     <h3>Iron Rank</h3>
+                    <p class="price">$10.00</p>
+                    <ul>
+                        <li>Iron Kit (/kit iron)</li>
+                        <li>[Iron] Prefix in chat</li>
+                        <li>Access to /sethome (3)</li>
+                        <li>Access to /workbench</li>
+                        <li>Other Perk...</li>
+                    </ul>
+                     <button class="btn btn-purchase" data-item="Iron Rank">Purchase</button>
+                </div>
+                <!-- Rank 3 -->
+                <div class="item-card rank-card">
+                     <img src="https://placehold.co/300x150/2C3E50/FFFFFF/png?text=Gold+Rank" alt="Gold Rank Icon">
+                    <h3>Gold Rank</h3>
+                    <p class="price">$20.00</p>
+                     <ul>
+                        <li>Gold Kit (/kit gold)</li>
+                        <li>[Gold] Prefix in chat</li>
+                        <li>Access to /sethome (5)</li>
+                        <li>Access to /feed</li>
+                        <li>Other Perk...</li>
+                    </ul>
+                     <button class="btn btn-purchase" data-item="Gold Rank">Purchase</button>
+                </div>
+                <!-- Rank 4 -->
+                <div class="item-card rank-card">
+                     <img src="https://placehold.co/300x150/2C3E50/FFFFFF/png?text=Diamond+Rank" alt="Diamond Rank Icon">
+                     <h3>Diamond Rank</h3>
+                    <p class="price">$40.00</p>
+                    <ul>
+                        <li>Diamond Kit (/kit diamond)</li>
+                        <li>[Diamond] Prefix in chat</li>
+                        <li>Access to /sethome (10)</li>
+                        <li>Access to /fly (in designated areas)</li>
+                        <li>Other Perk...</li>
+                    </ul>
+                     <button class="btn btn-purchase" data-item="Diamond Rank">Purchase</button>
+                </div>
+                 <!-- Rank 5 -->
+                 <div class="item-card rank-card">
+                     <img src="https://placehold.co/300x150/2C3E50/FFFFFF/png?text=Netherite+Rank" alt="Netherite Rank Icon">
+                    <h3>Netherite Rank</h3>
+                    <p class="price">$75.00</p>
+                    <ul>
+                        <li>Netherite Kit (/kit netherite)</li>
+                        <li>[Netherite] Prefix in chat</li>
+                        <li>Access to /sethome (15)</li>
+                        <li>Access to /heal (cooldown)</li>
+                        <li>Priority Queue Access</li>
+                        <li>Other Top Perk...</li>
+                    </ul>
+                     <button class="btn btn-purchase" data-item="Netherite Rank">Purchase</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coins Section -->
+        <section id="coins" class="store-section">
+            <h2><i class="fas fa-coins"></i> Purchase Coins</h2>
+            <p>Stock up on server coins to use in-game for items, perks, or trading!</p>
+             <div class="item-grid">
+                <!-- Coin Package 1 -->
+                <div class="item-card coin-card">
+                    <img src="https://placehold.co/300x150/1A2A3A/C0C0C0/png?text=601+Coins" alt="601 Coins Icon">
+                    <h3>601 Coins</h3>
+                    <p class="price">₹39</p>
+                    <p class="description">Quick top-up pack.</p>
+                    <button class="btn btn-purchase" data-item="601 Coins">Purchase</button>
+                </div>
+                 <!-- Coin Package 2 -->
+                 <div class="item-card coin-card">
+                    <img src="https://placehold.co/300x150/1A2A3A/C0C0C0/png?text=1499+Coins" alt="1499 Coins Icon">
+                    <h3>1,499 Coins</h3>
+                    <p class="price">₹79</p>
+                    <p class="description">Good value starter pack.</p>
+                    <button class="btn btn-purchase" data-item="1,499 Coins">Purchase</button>
+                 </div>
+                 <!-- Coin Package 3 -->
+                 <div class="item-card coin-card">
+                    <img src="https://placehold.co/300x150/1A2A3A/C0C0C0/png?text=3200+Coins" alt="3200 Coins Icon">
+                    <h3>3,200 Coins</h3>
+                    <p class="price">₹199</p>
+                    <p class="description">Popular choice!</p>
+                    <button class="btn btn-purchase" data-item="3,200 Coins">Purchase</button>
+                 </div>
+                 <!-- Coin Package 4 -->
+                 <div class="item-card coin-card">
+                    <img src="https://placehold.co/300x150/1A2A3A/C0C0C0/png?text=7500+Coins" alt="7500 Coins Icon">
+                    <h3>7,500 Coins</h3>
+                    <p class="price">₹399</p>
+                    <p class="description">Significant coin boost.</p>
+                    <button class="btn btn-purchase" data-item="7,500 Coins">Purchase</button>
+                 </div>
+                 <!-- Coin Package 5 -->
+                 <div class="item-card coin-card">
+                    <img src="https://placehold.co/300x150/1A2A3A/C0C0C0/png?text=10100+Coins" alt="10100 Coins Icon">
+                    <h3>10,100 Coins</h3>
+                    <p class="price">₹579</p>
+                    <p class="description">Large coin package.</p>
+                    <button class="btn btn-purchase" data-item="10,100 Coins">Purchase</button>
+                 </div>
+                <!-- Coin Package 6 -->
+                <div class="item-card coin-card best-value">
+                    <img src="https://placehold.co/300x150/1A2A3A/C0C0C0/png?text=15999+Coins" alt="15999 Coins Icon">
+                    <div class="value-banner">Best Value!</div>
+                    <h3>15,999 Coins</h3>
+                    <p class="price">₹799</p>
+                    <p class="description">Excellent value per coin!</p>
+                    <button class="btn btn-purchase" data-item="15,999 Coins (Best Value)">Purchase</button>
+                </div>
+                <!-- Coin Package 7 -->
+                <div class="item-card coin-card">
+                    <img src="https://placehold.co/300x150/1A2A3A/C0C0C0/png?text=22999+Coins" alt="22999 Coins Icon">
+                    <h3>22,999 Coins</h3>
+                    <p class="price">₹1199</p>
+                    <p class="description">Maximum coin bundle.</p>
+                    <button class="btn btn-purchase" data-item="22,999 Coins">Purchase</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vote Section -->
+        <section id="vote" class="store-section">
+            <h2><i class="fas fa-check-to-slot"></i> Vote for Rewards</h2>
+            <p>Help the server grow by voting on these sites daily! You'll receive awesome in-game rewards for each vote.</p>
+
+            <div class="vote-links-container">
+                 <!-- === IMPORTANT: Replace '#' with your actual vote links === -->
+                 <a href="#" target="_blank" class="btn vote-link">
+                     <i class="fas fa-external-link-alt"></i> Vote Site 1
+                 </a>
+                 <a href="#" target="_blank" class="btn vote-link">
+                     <i class="fas fa-external-link-alt"></i> Vote Site 2
+                 </a>
+                 <a href="#" target="_blank" class="btn vote-link">
+                     <i class="fas fa-external-link-alt"></i> Vote Site 3
+                 </a>
+                 <a href="#" target="_blank" class="btn vote-link">
+                     <i class="fas fa-external-link-alt"></i> Vote Site 4
+                 </a>
+                 <a href="#" target="_blank" class="btn vote-link">
+                     <i class="fas fa-external-link-alt"></i> Vote Site 5
+                 </a>
+                 <a href="#" target="_blank" class="btn vote-link">
+                     <i class="fas fa-external-link-alt"></i> Vote Site 6
+                 </a>
+                 <a href="#" target="_blank" class="btn vote-link">
+                     <i class="fas fa-external-link-alt"></i> Vote Site 7
+                 </a>
+            </div>
+            <small class="vote-reminder">Remember to enter your Minecraft username on the voting site if prompted!</small>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 WEEKND MC. All Rights Reserved. | Not affiliated with Mojang AB.</p>
+        </div>
+    </footer>
+
+    <!-- ================== MODIFIED SCRIPT SECTION ================== -->
+    <script>
+        // Smooth scrolling for navigation links (Internal links only)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Prevent default ONLY if it's an internal link starting with #
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(this.getAttribute('href'));
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                // External links (like vote links or others) will proceed normally
+            });
+        });
+
+        // --- Purchase Button Logic ---
+        const purchaseButtons = document.querySelectorAll('.btn-purchase');
+        const usernameInput = document.getElementById('minecraftUsername');
+        const usernameError = document.getElementById('username-error');
+
+        purchaseButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const username = usernameInput.value.trim();
+                const itemName = button.dataset.item; // Get item name from data attribute
+
+                // --- Username Validation ---
+                if (!username) {
+                    usernameError.style.display = 'block'; // Show error message
+                    usernameInput.focus(); // Focus the input field
+                    // Optional: Add a temporary visual cue like a border
+                    usernameInput.style.borderColor = '#ffc107';
+                    setTimeout(() => {
+                       usernameInput.style.borderColor = ''; // Reset border after a delay
+                       usernameError.style.display = 'none';
+                    }, 3000);
+                    return; // Stop processing if username is empty
+                } else {
+                     usernameError.style.display = 'none'; // Hide error if previously shown
+                     usernameInput.style.borderColor = ''; // Clear any error border
+                }
+
+
+                // --- Construct URL and Redirect ---
+                // Encode components to handle spaces and special characters in item names/usernames
+                const purchaseURL = `purchase.html?item=${encodeURIComponent(itemName)}&username=${encodeURIComponent(username)}`;
+
+                // Redirect to the purchase page
+                window.location.href = purchaseURL;
+            });
+        });
+
+        // --- Optional: Hide username error when user starts typing ---
+         if(usernameInput) {
+            usernameInput.addEventListener('input', () => {
+                if (usernameError.style.display === 'block') {
+                    usernameError.style.display = 'none';
+                    usernameInput.style.borderColor = ''; // Reset border
+                }
+            });
+         }
+
+
+    </script>
+    <!-- Removed link to script.js as logic is now inline or in purchase.js -->
+    <!-- <script src="script.js"></script> -->
+
+</body>
+</html>

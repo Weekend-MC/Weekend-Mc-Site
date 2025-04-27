@@ -1,0 +1,750 @@
+/* --- Global Styles & Variables --- */
+:root {
+    /* --- Snowfall/Ice Theme --- */
+    --primary-color: #B0E0E6; /* Powder Blue - Represents ice/frost */
+    --primary-hover-color: #87CEEB; /* Sky Blue - Darker shade for hover */
+    --secondary-color: #C0C0C0; /* Silver - Represents snow sparkle/accents */
+    --background-color: #1A2A3A; /* Dark Slate Blue - Deep winter night */
+    --card-background: #2C3E50; /* Slightly Lighter Slate Blue/Grey */
+    --text-color: #F0F8FF; /* Alice Blue - Soft white like snow */
+    --heading-color: #FFFFFF; /* Pure White - Crisp snow */
+    --border-color: #4F6A7F; /* Muted Slate Blue/Grey Border */
+    --button-text-color: #1A2A3A; /* Dark text for light buttons (like primary) */
+
+    /* --- Purchase Button Colors (Also used for Vote Links now) --- */
+    --purchase-color: #28a745; /* Standard Green */
+    --purchase-hover-color: #218838; /* Darker Green */
+    --purchase-text-color: #FFFFFF; /* White text for green buttons */
+
+    --minecraft-font: 'Montserrat', sans-serif;
+    --body-font: 'Poppins', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--background-color); /* Fallback background color */
+    color: var(--text-color);
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* --- Background Video Styling --- */
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: cover;
+    background-color: var(--background-color);
+    /* filter: brightness(0.9); */
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+h1, h2, h3 {
+    font-family: var(--minecraft-font);
+    color: var(--heading-color);
+    margin-bottom: 0.8em;
+    font-weight: 700;
+}
+
+h1 { font-size: 2.8em; }
+h2 {
+    font-size: 2.2em;
+    margin-top: 1.5em;
+    border-bottom: 2px solid var(--primary-color); /* Ice Blue underline */
+    display: inline-block;
+    padding-bottom: 5px;
+    color: var(--primary-color); /* Make section headers Ice Blue */
+}
+h3 {
+    font-size: 1.5em;
+    color: var(--heading-color);
+    margin-top: 0.5em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color); /* Ice Blue links */
+}
+a:hover {
+    color: var(--secondary-color); /* Silver on hover */
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.5em;
+    padding-left: 1.2em;
+    position: relative;
+}
+
+/* Custom list bullets for Ranks - Snowflake */
+.rank-card ul li::before {
+    content: '❄️';
+    color: var(--primary-color); /* Ice Blue bullet */
+    position: absolute;
+    left: 0;
+    font-size: 0.9em;
+    top: 0.1em;
+}
+
+
+/* --- Header --- */
+header {
+    background-color: rgba(26, 42, 58, 0.9);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border-color);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--minecraft-font);
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 40px 20px;
+    color: #fff;
+    z-index: 2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none; /* Removed overlay */
+    z-index: 1;
+}
+
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero h1 {
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Stronger shadow */
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+}
+
+.main-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.main-buttons .btn {
+    margin: 5px;
+    padding: 15px 30px;
+    font-size: 1.1em;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--body-font);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    white-space: nowrap;
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.btn-primary {
+    background-color: var(--primary-color); /* Ice Blue */
+    color: var(--button-text-color); /* Dark text for contrast */
+}
+.btn-primary:hover {
+    background-color: var(--primary-hover-color); /* Darker Ice Blue */
+    color: var(--button-text-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(176, 224, 230, 0.4); /* Powder Blue glow */
+}
+
+.btn-secondary {
+    background-color: #4F6A7F; /* Muted Slate Blue/Grey */
+    color: #E0E0E0; /* Light text */
+    border: 1px solid var(--secondary-color); /* Silver border */
+}
+.btn-secondary:hover {
+    background-color: #60829e; /* Lighter muted blue */
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px);
+     box-shadow: 0 4px 8px rgba(192, 192, 192, 0.2); /* Silver glow */
+}
+
+.btn-purchase {
+    background-color: var(--purchase-color); /* Use Green */
+    color: var(--purchase-text-color); /* White text */
+    width: 100%;
+    margin-top: auto;
+    padding: 12px 20px;
+}
+.btn-purchase:hover {
+    background-color: var(--purchase-hover-color); /* Darker Green */
+    color: var(--purchase-text-color); /* Keep text White */
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4); /* Green glow */
+    transform: translateY(-2px);
+}
+
+
+/* --- Store Sections --- */
+main.container {
+    padding: 40px 20px;
+    background-color: rgba(44, 62, 80, 0.92);
+    border-radius: 8px;
+    margin-top: -60px;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    border: 1px solid var(--border-color);
+}
+
+.store-section {
+    margin-bottom: 50px;
+    text-align: center;
+}
+.store-section:last-of-type {
+    margin-bottom: 0;
+}
+
+
+.store-section > p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+
+/* --- Minecraft Username Input Styling --- */
+.username-input-container {
+    margin-bottom: 35px;
+    padding: 20px;
+    background-color: rgba(26, 42, 58, 0.7);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.username-input-container label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: var(--heading-color);
+}
+
+.username-input-container input[type="text"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: #3e566d;
+    color: var(--text-color);
+    font-size: 1em;
+    font-family: var(--body-font);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.username-input-container input[type="text"]:focus {
+    outline: none;
+    border-color: var(--primary-color); /* Ice Blue border */
+    box-shadow: 0 0 0 3px rgba(176, 224, 230, 0.4); /* Powder Blue glow */
+}
+
+.username-input-container input[type="text"]::placeholder {
+    color: #a0b0c0;
+    opacity: 0.8;
+}
+
+.username-input-container small {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.85em;
+    color: #b0c4de;
+}
+
+
+/* --- Item Grid & Cards --- */
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.item-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(176, 224, 230, 0.2); /* Subtle powder blue shadow */
+    border-color: var(--primary-color); /* Ice Blue border */
+}
+
+/* Styling for Placeholder Images */
+.item-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: block;
+    background-color: #3e566d;
+}
+
+
+.item-card .price {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+}
+
+/* --- Coin Card Specific Styles --- */
+.coin-card .description {
+    font-size: 0.9em;
+    color: #b0c4de;
+    min-height: 2.7em;
+    margin-bottom: 1em;
+}
+
+/* 'Best Value' banner */
+.coin-card.best-value {
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-color); /* Highlight best value with Ice Blue */
+}
+
+.value-banner {
+    position: absolute;
+    top: 15px;
+    right: -40px;
+    background-color: var(--primary-color); /* Ice Blue banner */
+    color: var(--button-text-color); /* Dark text */
+    padding: 5px 40px;
+    font-weight: bold;
+    font-size: 0.9em;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    z-index: 1;
+}
+
+
+/* --- Vote Section Styling --- */
+#vote {
+    padding-top: 40px;
+}
+
+.vote-links-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+/* --- MODIFIED: Vote Link Styling --- */
+.vote-link {
+    /* Inherits .btn styles */
+    background-color: var(--purchase-color); /* USE GREEN */
+    color: var(--purchase-text-color); /* USE WHITE TEXT */
+    border: 1px solid var(--purchase-hover-color); /* Darker green border */
+    min-width: 150px;
+    flex-grow: 1;
+    max-width: 250px;
+}
+
+.vote-link i {
+    margin-right: 8px;
+}
+
+.vote-link:hover {
+    background-color: var(--purchase-hover-color); /* Darker Green on hover */
+    color: var(--purchase-text-color); /* Keep text white */
+    border-color: var(--purchase-color);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3); /* Green glow */
+    transform: translateY(-2px);
+}
+/* --- End Vote Link Modification --- */
+
+
+.vote-reminder {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #b0c4de;
+}
+
+
+/* --- Footer --- */
+footer {
+    background-color: #0F1A24;
+    color: #9AB0C7;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 60px;
+    font-size: 0.9em;
+    border-top: 1px solid #2C3E50;
+    position: relative;
+    z-index: 5;
+}
+
+footer a {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+footer a:hover {
+    color: var(--primary-color); /* Ice Blue hover */
+}
+
+/* ================== Purchase Page Styles ================== */
+
+.purchase-header { /* Simple distinct header */
+    background-color: rgba(26, 42, 58, 0.95); /* Slightly darker */
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.purchase-container {
+    padding: 30px 20px;
+    background-color: rgba(44, 62, 80, 0.95); /* Slightly more opaque */
+    border-radius: 8px;
+    margin-top: 30px; /* Space from header */
+    margin-bottom: 30px;
+    max-width: 800px; /* Limit width for readability */
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+.purchase-container h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.purchase-details {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}
+.purchase-details hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(176, 224, 230, 0), rgba(176, 224, 230, 0.75), rgba(176, 224, 230, 0)); /* Faded Ice blue line */
+    margin-top: 15px;
+}
+
+.purchase-section {
+    background-color: rgba(26, 42, 58, 0.6); /* Slightly transparent section bg */
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border: 1px solid var(--border-color);
+}
+
+.purchase-section h2 {
+    font-size: 1.5em;
+    color: var(--heading-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 8px;
+}
+.purchase-section h2 i {
+    margin-right: 10px;
+    color: var(--primary-color); /* Icon color */
+}
+
+/* Coupon Section */
+.coupon-input-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap; /* Wrap on smaller screens */
+}
+.coupon-input-group input[type="text"] {
+    flex-grow: 1; /* Take available space */
+    padding: 10px 12px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background-color: #3e566d;
+    color: var(--text-color);
+    font-size: 1em;
+    min-width: 150px; /* Prevent becoming too small */
+}
+.coupon-input-group input[type="text"]:focus {
+     outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(176, 224, 230, 0.4);
+}
+.coupon-input-group .btn-apply-coupon {
+    padding: 10px 15px; /* Match input height */
+    flex-shrink: 0; /* Don't shrink */
+}
+#coupon-message {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    min-height: 1.2em; /* Prevent layout shift */
+}
+
+/* Agreements Section */
+.agreement {
+    display: flex;
+    align-items: flex-start; /* Align checkbox with start of text */
+    margin-bottom: 15px;
+    font-size: 0.95em;
+}
+.agreement input[type="checkbox"] {
+    margin-right: 10px;
+    margin-top: 0.2em; /* Align better with text */
+    flex-shrink: 0;
+    /* Optional: Style checkboxes */
+    appearance: none;
+    background-color: #3e566d;
+    border: 1px solid var(--border-color);
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 3px;
+    cursor: pointer;
+    position: relative; /* For checkmark */
+    transition: background-color 0.2s ease;
+}
+.agreement input[type="checkbox"]:checked {
+    background-color: var(--primary-color); /* Ice blue when checked */
+    border-color: var(--primary-hover-color);
+}
+.agreement input[type="checkbox"]:checked::after { /* Checkmark */
+    content: '✔';
+    font-size: 0.9em;
+    color: var(--button-text-color); /* Dark checkmark */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+}
+
+.agreement label {
+    cursor: pointer;
+    line-height: 1.4;
+}
+.agreement .dynamic-username { /* Style the dynamically inserted username */
+    font-weight: bold;
+    color: var(--secondary-color); /* Silver */
+}
+
+/* Finalize Section */
+#finalize-section p {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+    color: #b0c4de;
+}
+
+#finalize-button {
+    width: auto; /* Don't force full width */
+    padding: 12px 25px;
+    font-size: 1.1em;
+    margin: 0 auto; /* Center button */
+    display: block;
+}
+
+#finalize-button:disabled {
+    background-color: #5a6268; /* Greyed out background */
+    border-color: #545b62;
+    color: #adb5bd; /* Greyed out text */
+    cursor: not-allowed;
+    opacity: 0.65;
+    box-shadow: none;
+    transform: none;
+}
+#finalize-button:disabled:hover { /* Prevent hover effects when disabled */
+     background-color: #5a6268;
+     color: #adb5bd;
+}
+#finalize-button i {
+    margin-right: 8px;
+}
+
+.purchase-footer {
+    background-color: #0F1A24;
+    color: #9AB0C7;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    font-size: 0.85em;
+    border-top: 1px solid #2C3E50;
+    position: relative;
+    z-index: 5;
+}
+
+/* Error message on index.html */
+.error-message {
+     margin-top: 5px;
+     /* Ensure error message styles are present */
+     display: none;
+     color: #ffc107;
+     font-weight: bold;
+}
+
+/* Responsive purchase page */
+@media (max-width: 600px) {
+    .purchase-container h1 {
+        font-size: 1.8em;
+    }
+    .purchase-section h2 {
+        font-size: 1.3em;
+    }
+    .coupon-input-group {
+        flex-direction: column; /* Stack coupon input/button */
+        align-items: stretch; /* Make input/button full width */
+    }
+     .agreement {
+        font-size: 0.9em;
+    }
+}
+
+/* ================== End Purchase Page Styles ================== */
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+     /* Optional: Adjust grid for tablets if needed */
+}
+
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.2em; }
+    h2 { font-size: 1.8em; }
+    .hero { min-height: auto; padding: 80px 20px; }
+    /* .main-buttons styling handled by flex-wrap */
+    .main-buttons .btn {
+        width: auto;
+        flex-basis: 45%;
+        max-width: 300px;
+        margin: 5px;
+    }
+    main.container { margin-top: 0; border-radius: 0; padding: 30px 15px; }
+}
+
+@media (max-width: 480px) {
+    .logo { font-size: 1.5em; }
+    .item-grid { grid-template-columns: 1fr; gap: 20px; }
+    h1 { font-size: 1.8em; }
+    .hero p { font-size: 1em; }
+    .item-card { padding: 15px; }
+    .username-input-container { padding: 15px; }
+
+    .main-buttons .btn {
+         flex-basis: 80%;
+         max-width: 300px;
+    }
+
+    .vote-links-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .vote-link {
+        width: 80%;
+        max-width: 300px;
+        flex-grow: 0;
+    }
+}
+
+@media (max-width: 400px) {
+   .hero .main-buttons .btn {
+      padding: 12px 20px;
+      font-size: 1em;
+      flex-basis: 90%;
+   }
+}
